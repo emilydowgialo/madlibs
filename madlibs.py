@@ -49,19 +49,25 @@ def show_game_form():
     else:
         return render_template("goodbye.html")
 
-@app.route('/madlib')
+@app.route('/madlib', methods=["POST"])
 def show_mad_lib():
 
-    proper_noun = request.args.get("teacher")
-    thing = request.args.get("noun")
-    hue = request.args.get("color")
-    descriptor = request.args.get("adjective")
+    proper_noun = request.form.get("teacher")
+    thing = request.form.get("noun")
+    hue = request.form.get("color")
+    descriptor = request.form.get("adjective")
+    if request.form.get("adverb") == []:
+        verb_descriptor = "[Please use your browser's back button to choose at least one adverb.]"
+    else:
+        verb_descriptor = choice(request.form.get("adverb"))
+    template_choice = choice(["madlib.html", "madlib2.html", "madlib3.html"])
 
-    return render_template("madlib.html",
+    return render_template(template_choice,
                             teacher=proper_noun,
                             noun=thing,
                             color=hue,
-                            adjective=descriptor)
+                            adjective=descriptor, 
+                            adverb=verb_descriptor)
 
 
 if __name__ == '__main__':

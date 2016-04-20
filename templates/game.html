@@ -4,7 +4,7 @@
   <title>Mad Libs</title>
 </head>
 <body>
-	<form action="/madlib">
+	<form action="/madlib" method="POST">
 		<br>Pick a person: 
 		<select name="teacher">
 			<option value="Joel">Joel</option>
@@ -21,6 +21,11 @@
 		<input type="text" name="color">
 		<br><br>Choose an adjective:
 		<input type="text" name="adjective">
+		<br><br>Which adverbs would you like to use?
+			<input type="checkbox" name="adverb" value="quickly">quickly
+			<input type="checkbox" name="adverb" value="angrily">angrily
+			<input type="checkbox" name="adverb" value="fast">fast
+			<input type="checkbox" name="adverb" value="sloppily">sloppily
 		<br><br><input type="submit">
 	</form>
 
