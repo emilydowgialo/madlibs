@@ -1,0 +1,53 @@
+body {
+	font-family: arial;
+	font-size: 18px;
+}
+
+input {
+    width: 100%;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 6px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    box-shadow: 6px 6px 5px #888888;
+    background-color: #e3e3e3;
+    font-size: 18px;
+    border-radius: 6px;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: #bdbdbd;
+    border: 2px solid purple;
+    color: purple;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 6px;
+}
+
+select {
+    width: 20%;
+    padding: 8px 10px;
+    border: 2px solid purple;
+    color: purple;
+    border-radius: 4px;
+    box-shadow: 6px 6px 5px #888888;
+    background-color: #bdbdbd;
+    display: block;
+    font-size: 24px;
+}
+
+input[type=checkbox] {
+    background-color: #bdbdbd;
+    border-radius: 6px;
+    height: 18px;
+    width: 18px;
+    display: inline-block;
+    margin: 12px;
+
+}

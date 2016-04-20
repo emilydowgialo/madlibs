@@ -2,11 +2,12 @@
 <html>
 <head>
   <title>Mad Libs</title>
+  <link rel="stylesheet" type="text/css" href="./static/madlibs.css">
 </head>
 <body>
 	<form action="/madlib" method="POST">
 		<br>Pick a person: 
-		<select name="teacher">
+		<select name="teacher" class="dropdown">
 			<option value="Joel">Joel</option>
 			<option value="Meggie">Meggie</option>
 			<option value="Henry">Henry</option>
@@ -21,10 +22,10 @@
 		<input type="text" name="color">
 		<br><br>Choose an adjective:
 		<input type="text" name="adjective">
-		<br><br>Which adverbs would you like to use?
+		<br><br>Which adverbs would you like to use?<br>
 			<input type="checkbox" name="adverb" value="quickly">quickly
 			<input type="checkbox" name="adverb" value="angrily">angrily
-			<input type="checkbox" name="adverb" value="fast">fast
+			<input type="checkbox" name="adverb" value="slowly">slowly
 			<input type="checkbox" name="adverb" value="sloppily">sloppily
 		<br><br><input type="submit">
 	</form>

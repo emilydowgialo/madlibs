@@ -49,25 +49,33 @@ def show_game_form():
     else:
         return render_template("goodbye.html")
 
-@app.route('/madlib', methods=["POST"])
+@app.route('/madlib', methods=["GET", "POST"])
 def show_mad_lib():
+    if request.method == 'POST':
+        proper_noun = request.form.get("teacher")
+        thing = request.form.get("noun")
+        hue = request.form.get("color")
+        descriptor = request.form.get("adjective")
+        adverbs = request.form.getlist("adverb")
+        if adverbs == []:
+            verb_descriptor = "[Please use your browser's back button to choose at least one adverb.]"
+        elif len(adverbs) == 1:
+            verb_descriptor = adverbs[0]
+        else:
+            verb_descriptor = ""
+            for word in adverbs:
+                verb_descriptor += word + ", "
+        template_choice = choice(["madlib.html", "madlib2.html", "madlib3.html"])
 
-    proper_noun = request.form.get("teacher")
-    thing = request.form.get("noun")
-    hue = request.form.get("color")
-    descriptor = request.form.get("adjective")
-    if request.form.get("adverb") == []:
-        verb_descriptor = "[Please use your browser's back button to choose at least one adverb.]"
+        return render_template(template_choice,
+                                teacher=proper_noun,
+                                noun=thing,
+                                color=hue,
+                                adjective=descriptor, 
+                                adverb=verb_descriptor)
+
     else:
-        verb_descriptor = choice(request.form.get("adverb"))
-    template_choice = choice(["madlib.html", "madlib2.html", "madlib3.html"])
-
-    return render_template(template_choice,
-                            teacher=proper_noun,
-                            noun=thing,
-                            color=hue,
-                            adjective=descriptor, 
-                            adverb=verb_descriptor)
+        return "Are you sure?"
 
 
 if __name__ == '__main__':
